@@ -1,4 +1,4 @@
-﻿#if !(NETSTANDARD || NET46)
+﻿#if !(NETSTANDARD || NET46 || NET5_0_OR_GREATER)
 using System;
 
 namespace Microsoft.Win32.SafeHandles
