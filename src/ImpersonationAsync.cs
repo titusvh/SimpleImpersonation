@@ -77,7 +77,7 @@ namespace SimpleImpersonation
         /// <param name="logonType">The logon type used when impersonating the user account.</param>
         /// <param name="function">The function to execute, which accepts a <see cref="SafeAccessTokenHandle"/> to the user account as its only parameter.</param>
         /// <returns>The result of executing the function.</returns>
-        public static Task<T> RunAsUser<T>(UserCredentials credentials, LogonType logonType, Func<Task<T>> function)
+        public static Task<T> RunAsUserAsync<T>(UserCredentials credentials, LogonType logonType, Func<Task<T>> function)
         {
             using (var tokenHandle = credentials.Impersonate(logonType))
             {
@@ -94,7 +94,7 @@ namespace SimpleImpersonation
         /// <param name="logonProvider">The logon provider used when impersonating the user account.</param>
         /// <param name="function">The function to execute, which accepts a <see cref="SafeAccessTokenHandle"/> to the user account as its only parameter.</param>
         /// <returns>The result of executing the function.</returns>
-        public static Task<T> RunAsUser<T>(UserCredentials credentials, LogonType logonType, LogonProvider logonProvider, Func<Task<T>> function)
+        public static Task<T> RunAsUserAsync<T>(UserCredentials credentials, LogonType logonType, LogonProvider logonProvider, Func<Task<T>> function)
         {
             using (var tokenHandle = credentials.Impersonate(logonType, logonProvider))
             {
@@ -110,7 +110,7 @@ namespace SimpleImpersonation
         /// <param name="logonType">The logon type used when impersonating the user account.</param>
         /// <param name="function">The function to execute.</param>
         /// <returns>The result of executing the function.</returns>
-        public static Task<T> RunAsUser<T>(UserCredentials credentials, LogonType logonType, Func<SafeAccessTokenHandle, Task<T>> function)
+        public static Task<T> RunAsUserAsync<T>(UserCredentials credentials, LogonType logonType, Func<SafeAccessTokenHandle, Task<T>> function)
         {
             using (var tokenHandle = credentials.Impersonate(logonType))
             {
@@ -127,7 +127,7 @@ namespace SimpleImpersonation
         /// <param name="logonProvider">The logon provider used when impersonating the user account.</param>
         /// <param name="function">The function to execute.</param>
         /// <returns>The result of executing the function.</returns>
-        public static Task<T> RunAsUser<T>(UserCredentials credentials, LogonType logonType, LogonProvider logonProvider, Func<SafeAccessTokenHandle, Task<T>> function)
+        public static Task<T> RunAsUserAsync<T>(UserCredentials credentials, LogonType logonType, LogonProvider logonProvider, Func<SafeAccessTokenHandle, Task<T>> function)
         {
             using (var tokenHandle = credentials.Impersonate(logonType, logonProvider))
             {
